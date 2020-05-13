@@ -1,8 +1,10 @@
+---
+description: Gionelle F. Tribiana (2015)
+---
+
 # We'll Never Use Miranda Rights
 
-## _Gionelle F. Tribiana \(2015\)_
-
-![Milky Way photo](../.gitbook/assets/miranda.jpeg)
+![Cuff and key for the criminals we all are](../.gitbook/assets/miranda.jpeg)
 
 Poetry is a lot like a person,  
 And maaan, am I really bad poetry.  
