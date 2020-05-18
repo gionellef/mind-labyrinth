@@ -1,8 +1,10 @@
+---
+description: Gionelle F. Tribiana (2016)
+---
+
 # Astrophysics and Kisses
 
-## _Gionelle F. Tribiana \(2016\)_
-
-![Milky Way photo](../.gitbook/assets/astro.jpeg)
+![How insignificant we are](../.gitbook/assets/astro.jpeg)
 
 We were two heavenly bodies  
 From distant faraway galaxies,  
