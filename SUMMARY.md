@@ -11,7 +11,8 @@
 * [Books](books.md)
 * [DevOps](devops.md)
 * [Travel](travel.md)
-* [Art](art.md)
+* [Art](art/README.md)
+  * [The Cafe Terrace on the Place du Forum](art/the-cafe-terrace-on-the-place-du-forum.md)
 * [Gaming](gaming/README.md)
   * [Mobile Legends](gaming/mobile-legends.md)
 
