@@ -4,19 +4,14 @@ description: by Enrique Simonet y Lombardo
 
 # Anatomy of the Heart
 
+![Discovering a woman's heart](../.gitbook/assets/heart.jpg)
 
 
-
-
-_**And she had a heart!**_
-
-_**Who thought, who knew?**_
-
-_**Somebody stole it, tore it apart,**_
-
-_**Now she's broken,**_
-
-_**Just a sad piece of art.**_
+*And she had a heart!*  
+*Who thought, who knew?*  
+*Somebody stole it, tore it apart,*  
+*Now she's broken,*  
+*Just a sad piece of art.*  
 
 _\*\*\*\*_
 

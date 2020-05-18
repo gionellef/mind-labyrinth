@@ -4,7 +4,7 @@ description: by Vincent Van Gogh
 
 # The Cafe Terrace on the Place du Forum
 
-![&#x201C;Oh but how can there be dark, without a trace of black? Is it a genius&#x2019; work, or of by some extreme luck?&quot;](../.gitbook/assets/image%20%281%29.png)
+![&#x201C;Oh but how can there be dark, without a trace of black? Is it a genius&#x2019; work, or of by some extreme luck?&quot;](../.gitbook/assets/cafe.png)
 
 #### There are many valuable Van Gogh artworks, but this one is my favorite.
 
