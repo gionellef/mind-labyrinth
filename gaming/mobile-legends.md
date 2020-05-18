@@ -7,3 +7,5 @@ description: >-
 
 # Mobile Legends
 
+Originally, I despised the idea of mobile gaming - I believe 
+
