@@ -14,6 +14,7 @@
 * [Art](art/README.md)
   * [Anatomy of the Heart](art/anatomy-of-the-heart.md)
   * [The Cafe Terrace on the Place du Forum](art/the-cafe-terrace-on-the-place-du-forum.md)
+  * [Breaking Home Ties](art/breaking-home-ties.md)
 * [Gaming](gaming/README.md)
   * [Mobile Legends](gaming/mobile-legends.md)
 
