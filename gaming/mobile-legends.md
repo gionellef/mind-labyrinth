@@ -42,5 +42,19 @@ So I spent another 1000 php to buy Hylos, upgrade emblems, and buy skins with th
 
 However, there's this growing feeling of familiarity in my head as I continue playing, which will turn out to be the difference maker. It was experience, and the game knowledge that comes with it. As I get acquainted with more and more heroes, I start to memorize their skills and their playstyles. Huh, they weren't really too hard to play against, I just didn't know better. It was this _eureka_ moment that propelled my rank from Epic V to Epic I. Four more stars and I'll have the Legend medal.
 
-## May 16-23
+## May 16-21
+
+I hated the start of this week. One more star until Mythic and I had the fucking idea to win no matter what using my favorite \(out of meta\) hero - Harith. And just like clockwork, I kept losing until I'm dropped back in Epic II. What a bummer. I took a day of rest, teamed up with some friends, messed around, and reached Legend before I knew it on May 21.
+
+## May 22-24
+
+What is essentially 31 days since I first played Mobile Legends \(and 2 days since I reached Legend\), I achieved the coveted Mythic medal. Calibration was hell as I lost 9 games \(never played solo, all 10 games were with pre-made team of newbies like me\) so I ended up with just 40 points after. 
+
+## May 25-June 1
+
+Goddamn, you wouldn't believe how vast the difference in skill is between Legend and Mythic, and how tryhard the players in this tier are.
+
+They will pick counters, ACTUALLY BAN TANKS which hurt my 2-hero-pool-both-tanks ass, and rotate crazy quick for a team of randoms. These gamers are no joke and you could tell they have lots experience. Here, you'll encounter some with cool ideas that you'd want to try yourself, some who are literal gods can solo carry the game using specific heroes, and some who are like me - knows enough of MOBA to play at the somewhat high level but without the game-specific knowledge needed to cross over the mastery line. Over the course of 1 week I dropped to Legend I a total of THREE times trying to learn new heroes and adapt to the smarter drafting stage. I learned Valir, Diggie, Atlas, Grock, Cecilion with enough confidence to use them in Ranked.
+
+This week might just be the period aside from my first week where I learned the most. I started seeing beyond missed skillshots and incorrect skill usage to where the missed timings, dynamic itemizations, and proper rotations come in play. I still don't know the skills of several heroes as I prefer to learn by playing against / with them and feeling for myself, so with that in mind, I know that this is not the highest skill group I can reach. Once I learn about everything crucial in ML, my humble estimate is that Mythic ~400 points would probably be where I belong. And that's my next goal.
 
