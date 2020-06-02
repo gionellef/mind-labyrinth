@@ -24,10 +24,10 @@ After that, the only things necessary to have are the container image URL and th
 
 ```text
 container:
-  image: open.docker.ing.net/dbnl/demo/elasticsearch:6.4.2
+  image: |insert elasticsearch image here|
 
 imagePullSecrets:
-- regsecret
+- secret
 ```
 
 ### Setting up Logstash
@@ -36,10 +36,10 @@ _**Logstash**_ collects, filters and _stashes_ app data into Elasticsearch. In o
 
 ```text
 container:
-  image: open.docker.ing.net/dbnl/demo/logstash:6.4.2
+  image: |insert logstash image here|
 
 imagePullSecrets:
-- regsecret
+- secret
 ```
 
 Now remember that logstash collects data and send them to the Elasticsearch 'database', thus we also have to set up where it's going to get application log data from, and where it should send them to. We do this in the _configmap.yml_ file inside the templates folder of your helm chart.
@@ -74,74 +74,48 @@ If you've noticed, the input variable uses Kafka. It is the most common buffer s
 
 ### Setting up Kafka
 
-For brevity, it is assumed that the application is developed using spring boot / ING merak.
+For brevity, it is assumed that the application is developed using spring boot.
 
-In order to use Kafka, it must be definde as a dependency in the pom.xml of your spring application. ING provides its own Kafka artifact that you should use.
+In order to use Kafka, it must be defined as a dependency in the pom.xml of your spring application.
 
 ```text
  <dependency>
-    <groupId>com.ing.log</groupId>
-    <artifactId>logback-kafka-appender</artifactId>
- </dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-log4j-appender</artifactId>
+	<version>1.0.0</version>
+</dependency>
 ```
 
-There is also a suggested Kafka configuration for merak spring applications. These configurations control the behavior \(how logs will look, duration, timeout, where the logs will be sent\) of Kafka and they are contained in a logback-spring.xml inside the _chart/config_ folder of your application:
+There is also a suggested Kafka configuration for merak spring applications. These configurations control the behavior \(how logs will look, duration, timeout, where the logs will be sent\) of Kafka and they are contained in a log42j.xml inside the _chart/config_ folder of your application:
 
 ```text
-<configuration scan="true" scanPeriod="60 seconds">
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" name="spring-boot-kafka-log" packages="com.devglan">
+    <Appenders>
+        <Kafka name="Kafka" topic="devglan-test">
+            <PatternLayout pattern="%date %message"/>
+            <Property name="bootstrap.servers">localhost:9092</Property>
+        </Kafka>
+        <Async name="Async">
+            <AppenderRef ref="Kafka"/>
+        </Async>
 
-  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-      <layout class="ch.qos.logback.classic.PatternLayout">
-          <Pattern>
-              %d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n
-          </Pattern>
-      </layout>
-  </appender>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5p [%-7t] %F:%L - %m%n"/>
+        </Console>
 
-  <appender name="KAFKA_APPENDER" class="com.ing.log.logback.KafkaAppender">
-      <encoder name="AVRO_ENC" class="com.ing.log.logback.encoder.LogbackEncoder">
-          <encryptionKey>MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI=</encryptionKey>
-          <schemaVersion>4</schemaVersion>
-      </encoder>
-      <kafkaProducerProperties>
-          bootstrap.servers=dbnl-kafka:9092
-      </kafkaProducerProperties>
-      <topicMapping>
-          <defaultTopic>log_globtpa_tech_topic</defaultTopic>
-      </topicMapping>
-      <environment>DEV</environment>
-      <component>InsuranceBeProductAPI</component>
-      <cmdbId>1234567890</cmdbId>
-      <debug>true</debug>
-  </appender>
-
-  <logger name="com.ing.apisdk.toolkit.connectivity.transport.core.finagle.filter.DebugLoggingFilter" level="debug"/>
-  <logger name="com.ing.insurance" level="debug"/>
-
-  <root level="INFO">
-      <appender-ref ref="CONSOLE"/>
-      <appender-ref ref="KAFKA_APPENDER"/>
-  </root>
-
-</configuration>
-
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Kafka"/>
+            <AppenderRef ref="stdout"/>
+        </Root>
+        <Logger name="org.apache.kafka" level="WARN" />
+    </Loggers>
+</Configuration>
 ```
 
-
-
-And in order to enable the logging from your application, this flag must be set to true in your application.properties file:
-
-```text
-merak.tracing.reporting.kafka.enabled=true
-```
-
-And this flag in _values.yml_ of your application's helm chart as well in order for your service to look for Kafka once it's in the cluster:
-
-```text
-MERAK_TRACING_REPORTING_KAFKA_ENABLED: "true"
-```
-
-The above steps ensure that Kafka will be able to receive the logs from your application, however, your application must still have a way of logging like `insurance-be-product`'s LogWatcher class because Kafka will only handle the buffering of log stream to Logstash.
+The above steps ensure that Kafka will be able to receive the logs from your application, however, your application must still have a class that handles logging because Kafka will only handle the buffering of log stream to Logstash.
 
 ### Setting up Kibana
 
@@ -153,15 +127,15 @@ env:
   xpack.security.enabled: "false"
 
 container:
-  image: open.docker.ing.net/dbnl/demo/kibana:6.4.2
+  image: |insert kibana image here|
 
 imagePullSecrets:
-- regsecret
+- secret
 ```
 
 ### Accessing the Kibana dashboard
 
 Make sure your application and the three ELK services are up and running \(maybe screenshot of oc get po? Zookeper?\). 
 
-Then go to http://kibana:5601
+Then go to http://localhost:5601
 
