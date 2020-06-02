@@ -10,6 +10,7 @@
   * [Learning the Piano](music/learning-the-piano.md)
 * [Books](books.md)
 * [DevOps](devops/README.md)
+  * [Elastic stack](devops/elastic-stack.md)
   * [Kubernetes](devops/kubernetes.md)
 * [Travel](travel.md)
 * [Art](art/README.md)
