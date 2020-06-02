@@ -76,7 +76,7 @@ If you've noticed, the input variable uses Kafka. It is the most common buffer s
 
 For brevity, it is assumed that the application is developed using spring boot / ING merak.
 
-In order to use Kafka, it must be downloaded as a dependency defined in the pom.xml of your spring application. ING provides its own Kafka artifact that you should use.
+In order to use Kafka, it must be definde as a dependency in the pom.xml of your spring application. ING provides its own Kafka artifact that you should use.
 
 ```text
  <dependency>
@@ -85,10 +85,60 @@ In order to use Kafka, it must be downloaded as a dependency defined in the pom.
  </dependency>
 ```
 
+There is also a suggested Kafka configuration for merak spring applications. These configurations control the behavior \(how logs will look, duration, timeout, where the logs will be sent\) of Kafka and they are contained in a logback-spring.xml inside the _chart/config_ folder of your application:
+
+```text
+<configuration scan="true" scanPeriod="60 seconds">
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+      <layout class="ch.qos.logback.classic.PatternLayout">
+          <Pattern>
+              %d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n
+          </Pattern>
+      </layout>
+  </appender>
+
+  <appender name="KAFKA_APPENDER" class="com.ing.log.logback.KafkaAppender">
+      <encoder name="AVRO_ENC" class="com.ing.log.logback.encoder.LogbackEncoder">
+          <encryptionKey>MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI=</encryptionKey>
+          <schemaVersion>4</schemaVersion>
+      </encoder>
+      <kafkaProducerProperties>
+          bootstrap.servers=dbnl-kafka:9092
+      </kafkaProducerProperties>
+      <topicMapping>
+          <defaultTopic>log_globtpa_tech_topic</defaultTopic>
+      </topicMapping>
+      <environment>DEV</environment>
+      <component>InsuranceBeProductAPI</component>
+      <cmdbId>1234567890</cmdbId>
+      <debug>true</debug>
+  </appender>
+
+  <logger name="com.ing.apisdk.toolkit.connectivity.transport.core.finagle.filter.DebugLoggingFilter" level="debug"/>
+  <logger name="com.ing.insurance" level="debug"/>
+
+  <root level="INFO">
+      <appender-ref ref="CONSOLE"/>
+      <appender-ref ref="KAFKA_APPENDER"/>
+  </root>
+
+</configuration>
+
+```
+
+
+
 And in order to enable the logging from your application, this flag must be set to true in your application.properties file:
 
 ```text
 merak.tracing.reporting.kafka.enabled=true
+```
+
+And this flag in _values.yml_ of your application's helm chart as well in order for your service to look for Kafka once it's in the cluster:
+
+```text
+MERAK_TRACING_REPORTING_KAFKA_ENABLED: "true"
 ```
 
 The above steps ensure that Kafka will be able to receive the logs from your application, however, your application must still have a way of logging like `insurance-be-product`'s LogWatcher class because Kafka will only handle the buffering of log stream to Logstash.
