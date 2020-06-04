@@ -135,7 +135,17 @@ imagePullSecrets:
 
 ### Accessing the Kibana dashboard
 
-Make sure your application and the three ELK services are up and running \(maybe screenshot of oc get po? Zookeper?\). 
+We expose a port to external applications \(which is localhost in our case\) via nodePort in _service.yml_ of Kibana's helm chart:
 
-Then go to http://localhost:5601
+```text
+ports:
+  - port: 5601
+    nodePort: 30561
+    protocol: TCP
+    targetPort: 5601
+```
+
+Lastly, make sure your application and the three ELK services are up and running in your cluster.
+
+Then go to [http://localhost:30561](http://localhost:30561)
 
