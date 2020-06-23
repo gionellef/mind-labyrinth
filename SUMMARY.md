@@ -6,6 +6,7 @@
   * [We'll Never Use Miranda Rights](poems/miranda-rights.md)
 * [macOS](macos.md)
 * [Music](music/README.md)
+  * [a playlist for faUsTiNo to listen](music/a-playlist-for-faustino-to-listen.md)
   * [The reason I play the piano](music/the-reason-i-play-the-piano.md)
   * [Learning the Piano](music/learning-the-piano.md)
 * [Books](books.md)
