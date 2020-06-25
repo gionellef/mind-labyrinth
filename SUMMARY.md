@@ -11,6 +11,7 @@
   * [Learning the Piano](music/learning-the-piano.md)
 * [Books](books.md)
 * [DevOps](devops/README.md)
+  * [AWS Cloud Essentials](devops/aws-cloud-essentials.md)
   * [Elastic stack](devops/elastic-stack.md)
   * [Kubernetes](devops/kubernetes.md)
 * [Travel](travel.md)
